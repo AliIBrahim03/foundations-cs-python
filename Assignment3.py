@@ -1,5 +1,40 @@
 def addMatrices():
-    pass
+    
+    rows = int(input("Enter the number of rows: "))
+    columns = int(input("Enter the number of columns: "))
+    matrix1 = []
+    matrix2 = []
+    for i in range(rows):
+        row = []
+        for j in range(columns):
+            element = int(input("Enter element " + str(j+1) + " of row " + str(i+1) + " of the first matrix: "))
+            row.append(element)
+        matrix1.append(row)
+        print(matrix1)
+    
+    for i in range(rows):
+        row = []
+        for j in range(columns):
+            element = int(input("Enter element " + str(j+1) + " of row " + str(i+1) + " of the second matrix: "))
+            row.append(element)
+        matrix2.append(row)
+        print(matrix2)
+        
+    matrix3 = []
+    for i  in range(rows):
+        row3 = []
+        for j in range(columns):
+            element = matrix1[i][j] + matrix2[i][j]
+            row3.append(element)
+            matrix3.append(row3) 
+    print("Matrix 3:",matrix3)
+            
+    return matrix3
+       
+            
+        
+    
+    
 def checkRotation():    
     pass
 def invertDictionary():
@@ -25,8 +60,7 @@ def main(): #main function
     print("Welcome", name) 
     
     choice = 10
-    limit = 0
-    while choice != 7 and limit < 7 :
+    while choice != 7:
         displayMenu() 
         choice = eval(input("\nEnter your choice: "))
         if choice == 1:
