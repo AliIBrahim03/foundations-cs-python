@@ -38,7 +38,23 @@ def addMatrices():
 def checkRotation():    
     pass
 def invertDictionary():
-    pass
+    lenght = int(input("Please enter the number of elements of this dictionary: "))
+    dict = {}
+    for i in range(1, lenght + 1):
+        key = input("Please enter the key of " + str(i) + ": ").strip()
+        value = input("Please enter the value of " + str(i) + ": " ).strip()
+        dict[key] = value            
+    print("Before inverting:")
+    print(dict)
+    inverted_dict = {}
+    for key, value in dict.items():
+        if value not in inverted_dict:
+            inverted_dict[value] = [key]
+        else:
+            inverted_dict[value].append(key)
+    print("After inverting:")
+    print(inverted_dict)        
+    
 def convert_Matrix_D():
     pass
 def checkPalindrome(s): #here I assumed the user will input at least one character   
