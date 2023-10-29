@@ -41,8 +41,17 @@ def invertDictionary():
     pass
 def convert_Matrix_D():
     pass
-def checkPalindrome():
-    pass
+def checkPalindrome(s): #here I assumed the user will input at least one character   
+#base case 
+    if len(s) <= 1:
+        return True
+    first_letter = s[0]
+    last_letter = s[-1]
+    if first_letter == last_letter:
+        return checkPalindrome(s[1:-1])
+    else:
+        return False
+    
 def search():
     pass
 def displayMenu(): #displaying the options we have
@@ -72,7 +81,11 @@ def main(): #main function
         elif choice == 4:
             convert_Matrix_D()
         elif choice == 5:
-            checkPalindrome()
+            s = input("Enter a string: ").strip() 
+            if checkPalindrome(s):
+                print("This string is a Palindrome.")
+            else:
+                print("This string is not a Palindrome.")
         elif choice == 6:
             search()
         elif choice != 7:
