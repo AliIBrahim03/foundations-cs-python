@@ -26,7 +26,7 @@ def addMatrices():
         for j in range(columns):
             element = matrix1[i][j] + matrix2[i][j]
             row3.append(element)
-            matrix3.append(row3) 
+        matrix3.append(row3) 
     print("Matrix 3:",matrix3)
             
     return matrix3
