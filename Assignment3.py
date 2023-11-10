@@ -68,7 +68,6 @@ def checkRotation():
    else:
     print("These matrices are rotated")                
                
-               
 def invertDictionary():
     lenght = int(input("Please enter the number of elements of this dictionary: "))
     dict = {}
