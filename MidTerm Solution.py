@@ -1,17 +1,24 @@
 #MidTerm Project
 ################
-tabs = [] #list to keep track of the order 
+tabs = [] #this empty list is used to keep the tabs in order
 def addTab():
     title = input("Please enter the title: ")
     URL = input("Please enter the URL: ")
     new_tab = {"title": title , "URL": URL}
     tabs.append(new_tab)
     print("Tab added successfully.")
-def closeTab():
+def closeTab(): 
     if len(tabs) == 0:
         print("There are no tabs to close.")
     else:
         index = input("Enter the index of the Tab you want to close: ")
+        if index == '':
+            tabs.pop() #https://www.w3schools.com/python/ref_list_pop.asp 
+                       #this function removes a the element at the specified position, and since we didn't specify the index it will automatically remove the last item in the list.
+            
+            
+            else:
+                if index == len(tabs)
         
     
 def inputName():
