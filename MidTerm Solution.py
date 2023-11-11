@@ -6,7 +6,7 @@ def addTab():
     URL = input("Please enter the URL: ")
     new_tab = {"title": title , "URL": URL}
     tabs.append(new_tab)
-    print(title +" with the URL",URL +" was added")
+    print(title +" with the URL:",URL +" was added")
 def closeTab(): 
     if len(tabs) == 0:
         print("There are no tabs to close.")
@@ -23,6 +23,7 @@ def closeTab():
                 print("Tab",index +"was closed")
             else:
                 print("This tab does not exist")
+                
                 
         
     
@@ -45,7 +46,7 @@ def main():
         if  your_input == 1:
             addTab()   
         elif your_input == 2:
-            pass
+            closeTab()
         elif your_input == 3:
             pass
         elif your_input == 4:
