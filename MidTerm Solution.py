@@ -6,12 +6,12 @@ def addTab():
     URL = input("Please enter the URL: ")
     new_tab = {"title": title , "URL": URL}
     tabs.append(new_tab)
-    print(title +" with the URL:",URL +" was added")
+    print(title +" with the URL:",URL," was added")
 def closeTab(): 
     if len(tabs) == 0:
         print("There are no tabs to close.")
     else:
-        index = input("Enter the index of the Tab you want to close: ")
+        index = int(input("Enter the index of the Tab you want to close: "))
         if index == '':
             tabs.pop() #https://www.w3schools.com/python/ref_list_pop.asp 
                        #this function removes a the element at the specified position, and since we didn't specify the index it will automatically remove the last item in the list.
@@ -20,11 +20,19 @@ def closeTab():
         else:
             if index < len(tabs) and index >= 0:
                 tabs.pop(index)
-                print("Tab",index +"was closed")
+                print("Tab",index,"with the URL",URL,"was closed")
             else:
                 print("This tab does not exist")
                 
-                
+def displayTabs():
+    if len(tabs) == 0:
+        print("There are no tabs to display.")
+    else:
+        for index in range(len(tabs)):
+            displayed_tab = tabs[index]
+            print("Tab " + str(index) + ": " + tab['title'] + " - " + tab['URL'])
+
+                  
         
     
 def inputName():
