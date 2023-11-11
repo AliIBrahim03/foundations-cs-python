@@ -1,5 +1,17 @@
 #MidTerm Project
 ################
+def inputTitle():
+    Title = input("Please enter the Title")
+def addTab(title,url):
+    new_tab = {"title": title , "URL":link}
+    tabs.append(new_tab)
+def closeTab():
+    if len(tabs) == 0:
+        print("There are no tabs to close.")
+    else:
+        index = input("Enter the index of the Tab you want to close: ")
+        
+    
 def inputName():
     user_name = input("Please enter your name: ")
     return user_name
