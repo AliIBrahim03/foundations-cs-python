@@ -6,7 +6,7 @@ def addTab():
     URL = input("Please enter the URL: ")
     new_tab = {"title": title , "URL": URL}
     tabs.append(new_tab)
-    print("Tab added successfully.")
+    print(title +" with the URL",URL +" was added")
 def closeTab(): 
     if len(tabs) == 0:
         print("There are no tabs to close.")
@@ -17,8 +17,13 @@ def closeTab():
                        #this function removes a the element at the specified position, and since we didn't specify the index it will automatically remove the last item in the list.
             
             
+        else:
+            if index < len(tabs) and index >= 0:
+                tabs.pop(index)
+                print("Tab",index +"was closed")
             else:
-                if index == len(tabs)
+                print("This tab does not exist")
+                
         
     
 def inputName():
