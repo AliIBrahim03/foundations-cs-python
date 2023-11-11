@@ -1,5 +1,7 @@
 #MidTerm Project
 ################
+import requests
+from bs4 import BeautifulSoup #https://www.freecodecamp.org/news/how-to-scrape-websites-with-python-2/
 
 tabs = [] #this empty list is used to keep the tabs in order
 
@@ -36,7 +38,21 @@ def closeTab():
 
             else:
                 print("This tab does not exist")
-                
+
+def switchTab():
+    if len(tabs) == 0:
+        print("There are no tabs to switch to.")
+    else:
+        index = int(input("Please enter the index of the Tab you want to switch to: "))
+        if index == '':
+            print(tabs[len(tabs)-1])
+            HTML_content = switched_tab.get('HTML', '')
+        else:
+            switched_tab = tabs[index]
+            print(switched_tab)
+
+            
+        
 def displayTabs():
     if len(tabs) == 0:
         print("There are no tabs to display.")
@@ -48,18 +64,17 @@ def displayTabs():
 def clearTabs():
     for i in range(len(tabs)):
         tabs.pop()
-            
-
-                  
-        
     
 def inputName():
+    
     user_name = input("Please enter your name: ")
     return user_name
 def openTab():
+    
     Title = input("Please enter the title: ")
     url = input("Please enter the URL: ")
 def displayMenu(user_name):
+    
     print("**********\n"+"Hello",user_name +"\n**********\n"+"1. Open Tab\n"+"2. Close Tab\n"+"3. Switch Tab\n"+
           "4. Display All Tabs\n"+"5. Open Nested Tab\n"+"6. Clear All Tabs\n"+
           "7. Save Tabs\n"+"8. Import Tabs\n"+"9. Exit\n"+"**********")
@@ -74,7 +89,7 @@ def main():
         elif your_input == 2:
             closeTab()
         elif your_input == 3:
-            pass
+            switchTab()
         elif your_input == 4:
             displayTabs()
         elif your_input == 5:
@@ -90,12 +105,4 @@ def main():
             
     print("\nYou exited the Program.")
    
-            
-        
-            
-    
-            
-        
-            
-    
 main()    
