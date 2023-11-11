@@ -44,6 +44,11 @@ def displayTabs():
         for index in range(len(tabs)):
             displayed_tab = tabs[index]
             print(displayed_tab)
+            
+def clearTabs():
+    for i in range(len(tabs)):
+        tabs.pop()
+            
 
                   
         
@@ -75,7 +80,7 @@ def main():
         elif your_input == 5:
             pass
         elif your_input == 6:
-            pass
+            clearTabs()
         elif your_input == 7:
             pass
         elif your_input == 8:
