@@ -31,7 +31,8 @@ def closeTab():
         else:
             if index < len(tabs) and index >= 0:
                 closed_tab = tabs.pop(index)
-                print("Tab", index, "with the Title", closed_tab["Title"], "and URL", closed_tab["URL"], "was closed")
+                print("Tab", index, "with the Title", closed_tab["Title"],
+                      "and URL", closed_tab["URL"], "was closed")
 
             else:
                 print("This tab does not exist")
@@ -42,7 +43,7 @@ def displayTabs():
     else:
         for index in range(len(tabs)):
             displayed_tab = tabs[index]
-            print("Tab " + str(index) + ": " + displayed_tab['title'] + " - " + displayed_tab['URL'])
+            print(displayed_tab)
 
                   
         
