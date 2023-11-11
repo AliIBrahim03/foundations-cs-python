@@ -1,10 +1,12 @@
 #MidTerm Project
 ################
-def addTab(title,url):
+tabs = [] #list to keep track of the order 
+def addTab():
     title = input("Please enter the title: ")
     URL = input("Please enter the URL: ")
-    new_tab = {"title": title , "URL":link}
+    new_tab = {"title": title , "URL": URL}
     tabs.append(new_tab)
+    print("Tab added successfully.")
 def closeTab():
     if len(tabs) == 0:
         print("There are no tabs to close.")
@@ -29,7 +31,7 @@ def main():
     while ( your_input != 9):
         your_input = int(input("Please choose an action: "))
         if  your_input == 1:
-            pass
+            addTab()   
         elif your_input == 2:
             pass
         elif your_input == 3:
