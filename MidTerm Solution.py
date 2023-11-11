@@ -1,8 +1,8 @@
 #MidTerm Project
 ################
-def inputTitle():
-    Title = input("Please enter the Title")
 def addTab(title,url):
+    title = input("Please enter the title: ")
+    URL = input("Please enter the URL: ")
     new_tab = {"title": title , "URL":link}
     tabs.append(new_tab)
 def closeTab():
