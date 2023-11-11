@@ -1,12 +1,23 @@
 #MidTerm Project
 ################
+
 tabs = [] #this empty list is used to keep the tabs in order
-def addTab():
-    title = input("Please enter the title: ")
+
+def getTitle():
+    Title = input("Please enter the Title: ")
+    return Title
+
+def getURL():
     URL = input("Please enter the URL: ")
-    new_tab = {"title": title , "URL": URL}
+    return URL
+
+def addTab():
+    Title = getTitle()
+    URL = getURL()
+    new_tab = {"Title": Title , "URL": URL}
     tabs.append(new_tab)
-    print(title +" with the URL:",URL," was added")
+    print(Title +" with the URL:",URL," was added")
+    
 def closeTab(): 
     if len(tabs) == 0:
         print("There are no tabs to close.")
@@ -19,8 +30,9 @@ def closeTab():
             
         else:
             if index < len(tabs) and index >= 0:
-                tabs.pop(index)
-                print("Tab",index,"with the URL",URL,"was closed")
+                closed_tab = tabs.pop(index)
+                print("Tab", index, "with the Title", closed_tab["Title"], "and URL", closed_tab["URL"], "was closed")
+
             else:
                 print("This tab does not exist")
                 
@@ -30,7 +42,7 @@ def displayTabs():
     else:
         for index in range(len(tabs)):
             displayed_tab = tabs[index]
-            print("Tab " + str(index) + ": " + tab['title'] + " - " + tab['URL'])
+            print("Tab " + str(index) + ": " + displayed_tab['title'] + " - " + displayed_tab['URL'])
 
                   
         
@@ -58,7 +70,7 @@ def main():
         elif your_input == 3:
             pass
         elif your_input == 4:
-            pass
+            displayTabs()
         elif your_input == 5:
             pass
         elif your_input == 6:
