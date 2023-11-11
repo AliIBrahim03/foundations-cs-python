@@ -12,5 +12,12 @@ def displayMenu():
 def main():
     displayMenu()
     your_input = eval(input("Please choose an action: "))
+    while ( your_input != 9):
+        if  your_input == 1:
+            pass
+        elif your_input != 9:
+            print("Error, pick a valid number.")
+        
+            
     
 main()    
