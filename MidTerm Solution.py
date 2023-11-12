@@ -1,7 +1,15 @@
 #MidTerm Project
 ################
-import requests
-from bs4 import BeautifulSoup #https://www.freecodecamp.org/news/how-to-scrape-websites-with-python-2/
+from urllib.request import urlopen
+
+#page = urlopen(url)
+#html_bytes = page.read()
+#html = html_bytes.decode("utf-8")
+#html_bytes = page.read()
+#html = html_bytes.decode("utf-8")
+#print(html)
+#import requests
+#from bs4 import BeautifulSoup #https://www.freecodecamp.org/news/how-to-scrape-websites-with-python-2/
 
 tabs = [] #this empty list is used to keep the tabs in order
 
@@ -50,8 +58,14 @@ def switchTab():
             HTML_content = switched_tab.get('HTML', '')
         else:
             index = int(index)
+            URL = tabs[index]["URL"]
             switched_tab = tabs[index]
+            page = urlopen(URL)
+            html_bytes = page.read()
+            HTML = html_bytes.decode("utf-8")
             print(switched_tab)
+            print(HTML)
+            
 
             
         
