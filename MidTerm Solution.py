@@ -1,7 +1,7 @@
 #MidTerm Project
 ################
 from urllib.request import urlopen
-
+import json
 #import requests
 #from bs4 import BeautifulSoup #https://www.freecodecamp.org/news/how-to-scrape-websites-with-python-2/
 
@@ -51,6 +51,7 @@ def switchTab():
             switched_tab = tabs[len(tabs)-1]
             print(switched_tab)
             HTML_content = switched_tab.get('HTML', '')
+            print(HTML_content)
         else:
             index = int(index)
             URL = tabs[index]["URL"]
@@ -60,48 +61,60 @@ def switchTab():
             HTML = html_bytes.decode("utf-8")   #https://realpython.com/python-web-scraping-practical-introduction/
             print(switched_tab)
             print(HTML)
-            
+
 def displayTabs():
     if len(tabs) == 0:
         print("There are no tabs to display.")
     else:
+        print("The open Tabs are: ")
         for index in range(len(tabs)):
-            displayed_title = tabs[index]["Title"]
-            print(displayed_title)
-            if tab["nested_tab"]:
-                displayTabs(tab["nested_tab"], indentation + 4)
-
-            
-
-def clearTabs():
-    for i in range(len(tabs)):
-        tabs.pop()
-    print("All tabs have been cleared.")    
-    
-def inputName():
-    
-    
-    user_name = input("Please enter your name: ")
-    return user_name
+            displayed_tab = tabs[index]['Title']
+            print(displayed_tab)           
+                        
 def openTab():
-   
-    parent_tab_index = int(input("Please enter the index of the parent tab" 
-                                 " where you wish to insert additional tabs: "))
+    parent_tab_index = int(input("Please enter the index of the parent tab: "))
     parent_tab = tabs[parent_tab_index]
     parent_tab["Nested"] = []
     Title = getTitle()
     URL = getURL()
     new_child_tab = {"Title": Title, "URL": URL}
-    parent_tab["Nested"].append(new_child_tab)
+    parent_tab["Nested"].append(new_child_tab)            
+                     
+def clearTabs():
+    for i in range(len(tabs)):
+        tabs.pop()
+    print("All tabs have been cleared.")
+
+def saveTabs(): 
+    file_path = input("Please enter the file path to save the"
+                      "current state of open tabs: ")
     
+    saved_tabs = {"tabs": tabs}
+    save_file =  open(file_path, "w")  #https://www.javatpoint.com/save-json-file-in-python        
+    json.dump(tabs, save_file, indent = 6)  
+    print("The current state of the tabs is saved to", file_path)
     
+def importTabs(): #https://www.geeksforgeeks.org/read-json-file-using-python/
+                  #open() function
+                  #snippet of code written by user Tejashwi5
     
+    file_path = str(input("Please enter the file path to your file: "))
+    f = open(file_path)
+    data = json.load(f)
+    for i in data['emp_details']:
+        print(i)
+    
+def inputName():
+    user_name = input("Please enter your name: ")
+    return user_name
+        
 def displayMenu(user_name):
     
     
     print("**********\n"+"Hello",user_name +"\n**********\n"+"1. Open Tab\n"+"2. Close Tab\n"+"3. Switch Tab\n"+
           "4. Display All Tabs\n"+"5. Open Nested Tab\n"+"6. Clear All Tabs\n"+
           "7. Save Tabs\n"+"8. Import Tabs\n"+"9. Exit\n"+"**********")
+    
 def main():
     user_name = inputName()
     displayMenu(user_name)
@@ -121,9 +134,9 @@ def main():
         elif your_input == 6:
             clearTabs()
         elif your_input == 7:
-            pass
+            saveTabs()
         elif your_input == 8:
-            pass
+            importTabs()
         elif your_input != 9:
             print("Error, pick a valid number.")
             
