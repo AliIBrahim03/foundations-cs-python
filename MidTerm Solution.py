@@ -138,11 +138,12 @@ def importTabs(): #https://www.geeksforgeeks.org/read-json-file-using-python/
     f = open(file_path)
     data = json.load(f)
     if 'tabs' in data:
-           # If it is, get the list of tabs and add them to the global 'tabs' list
            imported_tabs = data['tabs']
            for tab in imported_tabs:
                tabs.append(tab)
-           print("Tabs imported successfully.")
+           print("Tabs were loaded successfully.")
+    else:
+        print("There are no tabs inside this file")
 #####################################################################
 #this function asks for the user's name    
 def inputName():
