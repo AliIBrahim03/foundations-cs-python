@@ -91,11 +91,11 @@ def clearTabs():
 
 def saveTabs(): 
     file_path = input("Please enter the file path to save the"
-                      "current state of open tabs: ")
+                      " current state of open tabs: ")
     
     saved_tabs = {"tabs": tabs}
     save_file =  open(file_path, "w")  #https://www.javatpoint.com/save-json-file-in-python        
-    json.dump(tabs, save_file, indent = 6)  
+    json.dump(saved_tabs, save_file, indent = 6)  
     print("The current state of the tabs is saved to", file_path)
     
 def importTabs(): #https://www.geeksforgeeks.org/read-json-file-using-python/
