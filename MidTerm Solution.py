@@ -43,11 +43,13 @@ def switchTab():
     if len(tabs) == 0:
         print("There are no tabs to switch to.")
     else:
-        index = int(input("Please enter the index of the Tab you want to switch to: "))
+        index = input("Please enter the index of the Tab you want to switch to: ")
         if index == '':
-            print(tabs[len(tabs)-1])
+            switched_tab = tabs[len(tabs)-1]
+            print(switched_tab)
             HTML_content = switched_tab.get('HTML', '')
         else:
+            index = int(index)
             switched_tab = tabs[index]
             print(switched_tab)
 
@@ -64,6 +66,7 @@ def displayTabs():
 def clearTabs():
     for i in range(len(tabs)):
         tabs.pop()
+    print("All tabs have been cleared.")    
     
 def inputName():
     
@@ -83,7 +86,7 @@ def main():
     displayMenu(user_name)
     your_input = 0
     while ( your_input != 9):
-        your_input = int(input("Please choose an action: "))
+        your_input = int(input("\nPlease choose an action: "))
         if  your_input == 1:
             addTab()   
         elif your_input == 2:
