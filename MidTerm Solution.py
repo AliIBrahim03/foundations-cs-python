@@ -125,9 +125,10 @@ def saveTabs():
                       " current state of open tabs: ")
     
     saved_tabs = {"tabs": tabs}
-    save_file =  open(file_path, "w")  #https://www.javatpoint.com/save-json-file-in-python        
-    json.dump(saved_tabs, save_file, indent = 6)  
+    with open(file_path, "w") as save_file:
+         json.dump(saved_tabs, save_file, indent=6)
     print("The current state of the tabs is saved to", file_path)
+     
 #####################################################################    
 def importTabs(): #https://www.geeksforgeeks.org/read-json-file-using-python/
                   #open() function
