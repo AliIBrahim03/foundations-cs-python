@@ -66,10 +66,13 @@ def displayTabs():
         print("There are no tabs to display.")
     else:
         for index in range(len(tabs)):
-            displayed_tab = tabs[index]
-            NestedTabs = tabs [index] 
-            print(displayed_tab)
+            displayed_title = tabs[index]["Title"]
+            print(displayed_title)
+            if tab["nested_tab"]:
+                displayTabs(tab["nested_tab"], indentation + 4)
+
             
+
 def clearTabs():
     for i in range(len(tabs)):
         tabs.pop()
@@ -85,11 +88,11 @@ def openTab():
     parent_tab_index = int(input("Please enter the index of the parent tab" 
                                  " where you wish to insert additional tabs: "))
     parent_tab = tabs[parent_tab_index]
-    parent_tab["nested_tab"] = []
+    parent_tab["Nested"] = []
     Title = getTitle()
     URL = getURL()
     new_child_tab = {"Title": Title, "URL": URL}
-    parent_tab["nested_tab"].append(new_child_tab)
+    parent_tab["Nested"].append(new_child_tab)
     
     
     
