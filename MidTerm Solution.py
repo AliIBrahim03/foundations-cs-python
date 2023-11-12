@@ -137,7 +137,7 @@ def importTabs(): #https://www.geeksforgeeks.org/read-json-file-using-python/
     file_path = str(input("Please enter the file path to your file: "))
     f = open(file_path)
     data = json.load(f)
-    for i in data['emp_details']:
+    for i in data[tabs]:
         print(i)
 #####################################################################
 #this function asks for the user's name    
