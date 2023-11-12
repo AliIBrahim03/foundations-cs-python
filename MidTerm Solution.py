@@ -2,12 +2,6 @@
 ################
 from urllib.request import urlopen
 
-#page = urlopen(url)
-#html_bytes = page.read()
-#html = html_bytes.decode("utf-8")
-#html_bytes = page.read()
-#html = html_bytes.decode("utf-8")
-#print(html)
 #import requests
 #from bs4 import BeautifulSoup #https://www.freecodecamp.org/news/how-to-scrape-websites-with-python-2/
 
@@ -26,23 +20,24 @@ def addTab():
     URL = getURL()
     new_tab = {"Title": Title , "URL": URL}
     tabs.append(new_tab)
-    print(Title +" with the URL:",URL," was added")
+    print(Title, "with the URL:",URL, "was added")
     
 def closeTab(): 
     if len(tabs) == 0:
         print("There are no tabs to close.")
     else:
-        index = int(input("Enter the index of the Tab you want to close: "))
+        index = str(input("Enter the index of the Tab you want to close: "))
         if index == '':
             tabs.pop() #https://www.w3schools.com/python/ref_list_pop.asp 
-                       #this function removes a the element at the specified position, and since we didn't specify the index it will automatically remove the last item in the list.
+                       #this function removes the element at the specified index inside the list, and since we didn't specify the index it will automatically remove the last item in the list.
             
-            
+            print("The last tab was closed.")
         else:
+            index = int(index)
             if index < len(tabs) and index >= 0:
                 closed_tab = tabs.pop(index)
                 print("Tab", index, "with the Title", closed_tab["Title"],
-                      "and URL", closed_tab["URL"], "was closed")
+                     "and URL", closed_tab["URL"], "was closed")
 
             else:
                 print("This tab does not exist")
@@ -59,22 +54,20 @@ def switchTab():
         else:
             index = int(index)
             URL = tabs[index]["URL"]
-            switched_tab = tabs[index]
-            page = urlopen(URL)
-            html_bytes = page.read()
-            HTML = html_bytes.decode("utf-8")
+            switched_tab = tabs[index]          #https://realpython.com/python-web-scraping-practical-introduction/
+            page = urlopen(URL)                 #https://realpython.com/python-web-scraping-practical-introduction/
+            html_bytes = page.read()            #https://realpython.com/python-web-scraping-practical-introduction/
+            HTML = html_bytes.decode("utf-8")   #https://realpython.com/python-web-scraping-practical-introduction/
             print(switched_tab)
             print(HTML)
             
-
-            
-        
 def displayTabs():
     if len(tabs) == 0:
         print("There are no tabs to display.")
     else:
         for index in range(len(tabs)):
             displayed_tab = tabs[index]
+            NestedTabs = tabs [index] 
             print(displayed_tab)
             
 def clearTabs():
@@ -84,13 +77,24 @@ def clearTabs():
     
 def inputName():
     
+    
     user_name = input("Please enter your name: ")
     return user_name
 def openTab():
+   
+    parent_tab_index = int(input("Please enter the index of the parent tab" 
+                                 " where you wish to insert additional tabs: "))
+    parent_tab = tabs[parent_tab_index]
+    parent_tab["nested_tab"] = []
+    Title = getTitle()
+    URL = getURL()
+    new_child_tab = {"Title": Title, "URL": URL}
+    parent_tab["nested_tab"].append(new_child_tab)
     
-    Title = input("Please enter the title: ")
-    url = input("Please enter the URL: ")
+    
+    
 def displayMenu(user_name):
+    
     
     print("**********\n"+"Hello",user_name +"\n**********\n"+"1. Open Tab\n"+"2. Close Tab\n"+"3. Switch Tab\n"+
           "4. Display All Tabs\n"+"5. Open Nested Tab\n"+"6. Clear All Tabs\n"+
@@ -110,7 +114,7 @@ def main():
         elif your_input == 4:
             displayTabs()
         elif your_input == 5:
-            pass
+            openTab()
         elif your_input == 6:
             clearTabs()
         elif your_input == 7:
