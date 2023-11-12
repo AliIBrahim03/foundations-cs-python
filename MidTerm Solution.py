@@ -73,7 +73,7 @@ def displayTabs():
             nested_tabs = tabs[index].get('Nested', [])
             if nested_tabs:
                 for nested_tab in nested_tabs:
-                    print("  -", nested_tab['Title'])
+                    print("  ", nested_tab['Title'])
                         
 def openTab():
     parent_tab_index = int(input("Please enter the index of the parent tab: "))
