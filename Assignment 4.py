@@ -7,7 +7,7 @@ def getUsername():
             return username
             
 def getChoice():
-    choice = int(input("\nChoose an action: \n"))
+    choice = int(input("\nChoose an action: "))
     return choice
 
 def displayMenu():
@@ -19,32 +19,32 @@ def displayMenu():
           +"\n6. Exit")
 
 def main():
-    
+    limit = 0
     username = getUsername()
     print("\nWelcome",username)
-    displayMenu()
-    choice = getChoice()
-    while choice != 6:
-        
-        if choice == 1:
-            pass
-        elif choice == 2 :
-            pass
-        elif choice == 3:
-            pass
-        elif choice == 4:
-            pass
-        elif choice == 5:
-            pass
-        elif choice != 6:
-            print("Please choose a valid action.\n")
+    while True:
         displayMenu()
-        getChoice()
+        choice = getChoice()
+        
+        if 1 <= choice <= 5:
+            if choice == 1:
+                pass
+            elif choice == 2 :
+                pass
+            elif choice == 3:
+                pass
+            elif choice == 4:
+                pass
+            elif choice == 5:
+                pass
+        else:
+            limit += 1
+            print("\nError limit is at 4, you're currently at:", limit, "\n")
+            if limit >= 4:
+                print("\nLimit reached.")
+                break
+            print("\nPlease choose a valid action.\n")
             
-    print("You exited the program. Bye")
-    
-main()    
+    print("\nYou exited the program. Bye :)")
 
-    
-    
-    
+main()
