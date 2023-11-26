@@ -11,15 +11,15 @@ def getChoice():
     return choice
 
 def displayMenu():
-    print("1. Singly Linked List"
+    print("----------\n1. Singly Linked List"
           +"\n2. Check if Palindrome"
           +"\n3. Priority Queue"
           +"\n4. Evaluate an Infix Expression"
           +"\n5. Graph"
-          +"\n6. Exit")
+          +"\n6. Exit\n----------")
     
 def displayMenu1():
-    print("a. Add Node"
+    print("\n-----\na. Add Node"
           +"\nb. Display Nodes"
           +"\nc. Search for & Delete Node"
           +"\nd. Return to main menu")
@@ -28,18 +28,14 @@ def main():
     
     username = getUsername()
     print("\nWelcome",username)
-    while True:
-        displayMenu()
-        choice = getChoice()
-        if not choice.isnumeric():
-            print("Please enter a number.")
-            continue
-        choice = int(choice)
-        while choice != 6:
+    displayMenu()
+    choice = int(getChoice())
+    while (choice !=6):
         
-            if choice == 1:
-                displayMenu1()
-                choice = getChoice()
+        if choice == 1:
+            displayMenu1()
+            choice = getChoice()
+            while (choice != 'd'):
                 if choice == 'a':
                     pass
                 elif choice == 'b':
@@ -48,23 +44,22 @@ def main():
                     pass
                 elif choice == 'd':
                     break
-                else:
+                else:        
                     print("Please enter a valid letter.")
-            elif choice == 2 :
-                pass
-            elif choice == 3:
-                pass
-            elif choice == 4:
-                pass
-            elif choice == 5:
-                pass
-            elif choice != 6:
-                break
-        else:
-            print("Please enter a number.")
-            print("Please choose a valid action.\n")
-            displayMenu()
-            getChoice()
+                
+        elif choice == 2:
+            pass
+        elif choice == 3:
+            pass
+        elif choice == 4:
+            pass
+        elif choice == 5:
+            pass
+        elif choice != 6:
+            print("Invalid action. Try again.\n ")
+        
+        displayMenu()
+        choice = int(getChoice())
                         
     print("You exited the program. Bye :) ")
     
