@@ -7,7 +7,7 @@ def getUsername():
             return username
             
 def getChoice():
-    choice = int(input("\nChoose an action: "))
+    choice = input("\nChoose an action: ")
     return choice
 
 def displayMenu():
@@ -17,18 +17,39 @@ def displayMenu():
           +"\n4. Evaluate an Infix Expression"
           +"\n5. Graph"
           +"\n6. Exit")
-
+    
+def displayMenu1():
+    print("a. Add Node"
+          +"\nb. Display Nodes"
+          +"\nc. Search for & Delete Node"
+          +"\nd. Return to main menu")
+    
 def main():
-    limit = 0
+    
     username = getUsername()
     print("\nWelcome",username)
     while True:
         displayMenu()
         choice = getChoice()
+        if not choice.isnumeric():
+            print("Please enter a number.")
+            continue
+        choice = int(choice)
+        while choice != 6:
         
-        if 1 <= choice <= 5:
             if choice == 1:
-                pass
+                displayMenu1()
+                choice = getChoice()
+                if choice == 'a':
+                    pass
+                elif choice == 'b':
+                    pass
+                elif choice == 'c':
+                    pass
+                elif choice == 'd':
+                    break
+                else:
+                    print("Please enter a valid letter.")
             elif choice == 2 :
                 pass
             elif choice == 3:
@@ -37,14 +58,18 @@ def main():
                 pass
             elif choice == 5:
                 pass
-        else:
-            limit += 1
-            print("\nError limit is at 4, you're currently at:", limit, "\n")
-            if limit >= 4:
-                print("\nLimit reached.")
+            elif choice != 6:
                 break
-            print("\nPlease choose a valid action.\n")
-            
-    print("\nYou exited the program. Bye :)")
+        else:
+            print("Please enter a number.")
+            print("Please choose a valid action.\n")
+            displayMenu()
+            getChoice()
+                        
+    print("You exited the program. Bye :) ")
+    
+main()    
 
-main()
+    
+    
+    
